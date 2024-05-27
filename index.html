@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Centered Text with Background Image</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .bg-image {
+            background-image: url('Bg.jpg'); /* Local image file */
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .centered-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        .loading-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+        }
+
+        .loading-icon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .loading-icon div {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: fade 1.2s linear infinite;
+        }
+
+        .loading-icon div:nth-child(1) { top: 0; left: 26px; animation-delay: 0s; }
+        .loading-icon div:nth-child(2) { top: 6px; left: 42px; animation-delay: 0.1s; }
+        .loading-icon div:nth-child(3) { top: 18px; left: 50px; animation-delay: 0.2s; }
+        .loading-icon div:nth-child(4) { top: 30px; left: 42px; animation-delay: 0.3s; }
+        .loading-icon div:nth-child(5) { top: 36px; left: 26px; animation-delay: 0.4s; }
+        .loading-icon div:nth-child(6) { top: 30px; left: 10px; animation-delay: 0.5s; }
+        .loading-icon div:nth-child(7) { top: 18px; left: 2px; animation-delay: 0.6s; }
+        .loading-icon div:nth-child(8) { top: 6px; left: 10px; animation-delay: 0.7s; }
+
+        @keyframes fade {
+            0%, 39%, 100% { opacity: 0; }
+            40% { opacity: 1; }
+        }
+
+        /* Responsive adjustments for the logo image */
+        .centered-text img {
+            height: 150px;
+            width: auto; /* Maintain aspect ratio */
+        }
+
+        @media (max-width: 768px) {
+            .centered-text img {
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .centered-text img {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image">
+        <div class="centered-text">
+            <img src="lgo.png" alt="Logo">
+        </div>
+        <div class="loading-container">
+            <div class="loading-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <p style="font-size: 20px;">Coming Soon...</p>
+        </div>
+    </div>
+</body>
+</html>
